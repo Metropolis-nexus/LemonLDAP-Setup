@@ -27,17 +27,15 @@ subscription-manager repos --enable codeready-builder-for-rhel-10-x86_64-rpms
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-10.noarch.rpm
 ```
 
-```
-
 - Install LemonLDAP-NG (we install this from EPEL, the official repos are signed against DSA keys):
 
-```
+```bash
 dnf install -y lemonldap-ng lemonldap-ng-selinux lemonldap-ng-fastcgi-server
 ```
 
 - Set proper hostnames:
 
-```
+```bash
 sed -i 's/example\.com/llng.metropolis.nexus/g' /etc/lemonldap-ng/* /var/lib/lemonldap-ng/conf/lmConf-1.json /etc/nginx/conf.d/* /etc/httpd/conf.d/*
 sed -i 's/test1/app1/g' /etc/lemonldap-ng/* /var/lib/lemonldap-ng/conf/lmConf-1.json /etc/nginx/conf.d/* /etc/httpd/conf.d/*
 sed -i 's/test2/app2/g' /etc/lemonldap-ng/* /var/lib/lemonldap-ng/conf/lmConf-1.json /etc/nginx/conf.d/* /etc/httpd/conf.d/*
