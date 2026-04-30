@@ -33,6 +33,15 @@ dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-10.noar
 dnf install -y lemonldap-ng lemonldap-ng-selinux lemonldap-ng-fastcgi-server
 ```
 
+- Clear default NGINX config:
+
+```bash
+rm -f /etc/nginx/conf.d/default.conf
+touch /etc/nginx/conf.d/default.conf
+chmod 644 /etc/nginx/conf.d/default.conf
+chattr +i /etc/nginx/conf.d/default.conf
+```
+
 - Set proper hostnames:
 
 ```bash
